@@ -70,6 +70,8 @@ class SerializableProc
   include Marshalable
   marshal_attrs :file, :line, :codes, :arity, :binding, :sexps
 
+  attr_reader :binding
+
   ##
   # Creates a new instance of SerializableProc by passing in a code block, in the process,
   # all referenced variables (local, instance, class & global) within the block are
@@ -225,8 +227,8 @@ class SerializableProc
 
   alias_method :[], :call
 
-  def binding #:nodoc:
-    raise NotImplementedError
-  end
+  # def binding #:nodoc:
+  #   raise NotImplementedError
+  # end
 
 end
