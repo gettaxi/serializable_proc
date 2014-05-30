@@ -26,6 +26,10 @@ class SerializableProc
       end
     end
 
+    def to_s
+      @vars.to_s
+    end
+
     private
 
       def declare_vars
