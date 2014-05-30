@@ -13,7 +13,7 @@ begin
     gem.email = "ngty77@gmail.com"
     gem.homepage = "http://github.com/ngty/serializable_proc"
     gem.authors = ["NgTzeYang"]
-    gem.add_dependency "sourcify", ">= 0.2.2.1"
+    gem.add_dependency "sourcify", ">= 0.6.0.rc4"
     gem.add_dependency "ruby2ruby", ">= 1.2.5"
     gem.add_dependency "sexp_processor", ">= 3.0.5"
     gem.add_development_dependency "bacon", ">= 0"
@@ -44,8 +44,6 @@ rescue LoadError
   end
 end
 
-task :spec => :check_dependencies
-
 begin
   require 'reek/adapters/rake_task'
   Reek::RakeTask.new do |t|
@@ -73,7 +71,7 @@ end
 
 task :default => :spec
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
